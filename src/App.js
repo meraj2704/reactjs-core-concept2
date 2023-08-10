@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
   const accessories = [
@@ -17,6 +18,7 @@ function App() {
       <Product name="Laptop" price="44000"></Product>
       <Product name="Watch" price="4000"></Product>
       <Product name="Tablet" price="22000"></Product>
+      <Counter></Counter>
     </div>
   );
 }
@@ -36,6 +38,23 @@ function Things(props)
       <h2>Name :{props.name} </h2>
     <h4>Price :{props.price} </h4>
     <h4>Color :{props.color} </h4>
+    </div>
+  );
+}
+
+function Counter(){
+  const [count, setCount] =  useState(0);
+  // const increaseCount =()=>{
+  //   const newCount = count +1;
+  //   setCount(newCount);
+  // }
+  const increaseCount = ()=> setCount(count +1);
+  const decraseCount = ()=> setCount(count-1);
+  return (
+    <div>
+      <h1>Count : {count}</h1>
+      <button onClick={increaseCount}>Increase</button>
+      <button onClick={decraseCount}>Decrase</button>
     </div>
   );
 }
